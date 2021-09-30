@@ -25,7 +25,7 @@ def product_detail(request, id):
 
     return render(request, 'app/productdetail.html', {'detail': detail})
 
-
+@login_required(login_url='/login')
 def add_to_cart(request):
     user = request.user
     product_id = request.GET.get("prod_id")
@@ -118,7 +118,8 @@ def address(request):
 
 
 def orders(request):
-    return render(request, 'app/orders.html')
+    op = Order_Placed.objects.filter(user=request.user)
+    return render(request, 'app/orders.html', {'op': op})
 
 
 def mobile(request, data=None):
