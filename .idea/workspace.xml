@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="714e61b4-4073-4b19-aba6-58d8d4e80379" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/app/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/orders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +113,8 @@
       <workItem from="1632986739984" duration="1186000" />
       <workItem from="1632998304358" duration="5623000" />
       <workItem from="1633021940990" duration="198000" />
-      <workItem from="1633028174101" duration="97000" />
+      <workItem from="1633028174101" duration="380000" />
+      <workItem from="1633105137451" duration="376000" />
     </task>
     <servers />
   </component>

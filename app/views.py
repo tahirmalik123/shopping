@@ -7,10 +7,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import JsonResponse
-
+from django.utils.decorators import method_decorator
 
 # class ProductView(View):
 #     def get(self, request):
+
 def home(request):
     top = Product.objects.filter(catagory='TW')
 
@@ -50,7 +51,7 @@ def show_cart(request):
                 total = amount + ship_amount
         return render(request, 'app/addtocart.html', {'carts': cart, 'amount': amount, 'total': total})
 
-
+@login_required(login_url='/login')
 def plus_cart(request):
     if request.method == "GET":
         prod_id = request.GET['prod_id']
@@ -69,7 +70,7 @@ def plus_cart(request):
             data = {'c': c.quantity, 'amount': amount, 'total': amount + ship_amount}
             return JsonResponse(data)
 
-
+@login_required(login_url='/login')
 def Minus_cart(request):
     if request.method == "GET":
         prod_id = request.GET['prod_id']
@@ -88,7 +89,7 @@ def Minus_cart(request):
             data = {'c': c.quantity, 'amount': amount, 'total': amount + ship_amount}
             return JsonResponse(data)
 
-
+@login_required(login_url='/login')
 def Remove_cart(request):
     if request.method == "GET":
         prod_id = request.GET['prod_id']
@@ -107,16 +108,16 @@ def Remove_cart(request):
             data = {'amount': amount, 'total': total}
             return JsonResponse(data)
 
-
+@login_required(login_url='/login')
 def buy_now(request):
     return render(request, 'app/buynow.html')
 
-
+@login_required(login_url='/login')
 def address(request):
     add = Customer.objects.filter(user=request.user)
     return render(request, 'app/address.html', {'add': add, 'active': 'btn-primary'})
 
-
+@login_required(login_url='/login')
 def orders(request):
     op = Order_Placed.objects.filter(user=request.user)
     return render(request, 'app/orders.html', {'op': op})
@@ -153,7 +154,7 @@ def customerregistration(request):
         return redirect('login')
     return render(request, 'app/customerregistration.html', {'user_form': user_form})
 
-
+@login_required(login_url='/login')
 def checkout(request):
     user = request.user
     add = Customer.objects.filter(user=user)
@@ -171,6 +172,7 @@ def checkout(request):
 
     return render(request, 'app/checkout.html', {'add': add, "cart_item":cart_items, "total":total})
 
+@login_required(login_url='/login')
 def payment_done(request):
     user = request.user
     custid = request.GET.get("custid")
@@ -181,6 +183,7 @@ def payment_done(request):
         c.delete()
     return redirect('orders')
 
+@login_required(login_url='/login')
 def profile(request):
     c_form = CustomerForm()
     if request.method == 'POST':
